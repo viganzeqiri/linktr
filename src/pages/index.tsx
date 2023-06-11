@@ -1,6 +1,22 @@
 import Head from "next/head";
+import { Tree } from "@/components";
 
-export default function Home() {
+import { type InferGetStaticPropsType } from "next";
+
+import { type Links } from "./api/links";
+
+export async function getStaticProps() {
+  const response = await fetch("http://localhost:3000/api/links");
+  const links = (await response.json()) as Links;
+
+  return {
+    props: { links },
+  };
+}
+
+export default function Home({
+  links,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -10,7 +26,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>Hello Linktree</main>
+      <Tree {...links} />
     </>
   );
 }
