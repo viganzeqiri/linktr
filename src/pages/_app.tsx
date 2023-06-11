@@ -1,6 +1,10 @@
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+
+import { ChakraProvider } from "@chakra-ui/react";
 import { Roboto } from "next/font/google";
+
+import { theme } from "@/theme";
+import type { AppProps } from "next/app";
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -12,12 +16,16 @@ const roboto = Roboto({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <style jsx global>{`
-        html {
-          font-family: ${roboto.style.fontFamily};
-        }
-      `}</style>
-      <Component {...pageProps} />
+      <style jsx global>
+        {`
+          :root {
+            --font-roboto: ${roboto.style.fontFamily};
+          }
+        `}
+      </style>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
     </>
   );
 }
