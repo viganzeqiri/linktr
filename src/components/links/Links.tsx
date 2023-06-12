@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import { Link } from "@/components";
 
 import { type Link as LinkType } from "@/pages/api/links";
@@ -8,11 +9,10 @@ type Props = {
 
 export default function Links({ links }: Props) {
   return (
-    <div>
-      Links:
+    <Box>
       {links.map((link) => (
         <Link key={link.url} {...link} />
       ))}
-    </div>
+    </Box>
   );
 }

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Box } from "@chakra-ui/react";
 import { Tree } from "@/components";
 
 import { type InferGetStaticPropsType } from "next";
@@ -26,7 +27,15 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Tree {...links} />
+      <Box
+        w="100vw"
+        minH="100vh"
+        justifyContent="center"
+        bgGradient="linear(brand.first 15%, brand.second 70%)"
+        bgRepeat="repeat-y"
+      >
+        <Tree {...links} />
+      </Box>
     </>
   );
 }
