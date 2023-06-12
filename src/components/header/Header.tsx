@@ -2,7 +2,13 @@ import { chakra, Heading, IconButton } from "@chakra-ui/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LuMoreHorizontal } from "react-icons/lu";
 
-export default function Header() {
+import { type LinkToShare } from "../tree/Tree";
+
+type Props = {
+  openModal?: (linkData: LinkToShare) => void;
+};
+
+export default function Header({ openModal }: Props) {
   const { scrollY } = useScroll();
 
   const headerBg = useTransform(
@@ -62,6 +68,12 @@ export default function Header() {
         aria-label="Share"
         icon={<LuMoreHorizontal />}
         borderRadius="full"
+        onClick={() =>
+          openModal?.({
+            link: window.location.href,
+            text: "Share this linktree",
+          })
+        }
       />
     </chakra.header>
   );
