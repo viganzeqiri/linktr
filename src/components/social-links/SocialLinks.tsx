@@ -3,7 +3,7 @@ import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 
 import { type ReactNode } from "react";
-import { type SocialLink } from "@/pages/api/links";
+import { type SocialLink } from "@/data/links";
 
 type Props = {
   links: SocialLink[];

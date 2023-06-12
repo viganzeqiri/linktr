@@ -1,15 +1,11 @@
 import Head from "next/head";
 import { Box } from "@chakra-ui/react";
 import { Tree } from "@/components";
+import links from "@/data/links";
 
 import { type InferGetStaticPropsType } from "next";
 
-import { type Links } from "./api/links";
-
 export async function getStaticProps() {
-  const response = await fetch("http://localhost:3000/api/links");
-  const links = (await response.json()) as Links;
-
   return {
     props: { links },
   };

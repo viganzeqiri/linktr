@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import { Link } from "@/components";
 
-import { type Link as LinkType } from "@/pages/api/links";
+import { type Link as LinkType } from "@/data/links";
 
 import { type LinkToShare } from "../tree/Tree";
 

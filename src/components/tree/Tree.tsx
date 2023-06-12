@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box, chakra, useDisclosure } from "@chakra-ui/react";
 import { Header, Links, Modal, SocialLinks, User } from "@/components";
 
-import { type Links as LinksType } from "@/pages/api/links";
+import { type Links as LinksType } from "@/data/links";
 
 type Props = LinksType;
 export type LinkToShare = {
